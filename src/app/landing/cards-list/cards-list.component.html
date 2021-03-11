@@ -1,0 +1,22 @@
+<mat-card class="example-card" *ngFor="let item of results">
+  <img
+    mat-card-image
+    [src]="
+      currentList === 'categories'
+        ? 'assets/category/' + item.image
+        : 'assets/category/subcategory/' + item.image
+    "
+    alt="{{ item.image }}"
+  />
+  <mat-card-actions>
+    <span *ngIf="item.subcategories && item.subcategories.length > 0">
+      <button mat-button (click)="openSubcategories(item)">
+        {{ item.name }}
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </span>
+    <span *ngIf="!item.subcategories || item.subcategories.length == 0">
+      {{ item.name }}
+    </span>
+  </mat-card-actions>
+</mat-card>

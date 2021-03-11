@@ -1,0 +1,14 @@
+<div style="height: 45px; font-size: 16px; font-weight: bold">
+  <span>
+    <a mat-button (click)="breadCrumbMain()" style="color: black">
+      {{ rootName }}
+      <mat-icon *ngIf="menuHeader.length" fxFlex="10">
+        keyboard_arrow_right
+      </mat-icon>
+    </a>
+  </span>
+
+  <span *ngFor="let m of menuHeader; let indx = index" style="color: black">
+    {{ m }}
+  </span>
+</div>

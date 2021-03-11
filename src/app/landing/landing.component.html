@@ -1,0 +1,21 @@
+<app-toolbar></app-toolbar>
+<div *ngIf="selected; else infoText">
+  <app-breadcrumb
+    [lastItemData]="lastItemData"
+    [menuHeader]="menuHeader"
+    (menuHeaderAction)="menuHeaderAction($event)"
+  ></app-breadcrumb>
+  <app-cards-list
+    [currentList]="currentList"
+    [results]="results"
+    (subcategoriesAction)="subcategoriesAction($event)"
+  ></app-cards-list>
+</div>
+<ng-template #infoText>
+  <div class="container">
+    <div layout="row" layout-align="center center">
+      <h1>Welcome to Rental Management System</h1>
+      <h3>Please select location</h3>
+    </div>
+  </div>
+</ng-template>

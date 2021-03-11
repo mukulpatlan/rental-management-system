@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Rental Management System</span>
+  <span class="example-spacer"></span>
+  <span *ngFor="let item of locationsItem">
+    <button
+      mat-raised-button
+      color="primary"
+      [matMenuTriggerFor]="menu.childMenu"
+    >
+      {{ item.name }}
+    </button>
+    <app-select-location #menu [items]="item.children"></app-select-location>
+  </span>
+</mat-toolbar>

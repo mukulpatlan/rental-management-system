@@ -1,0 +1,24 @@
+<mat-menu #childMenu="matMenu" [overlapTrigger]="false">
+  <span *ngFor="let child of items">
+    <span *ngIf="child.branches && child.branches.length > 0">
+      <button
+        mat-menu-item
+        color="primary"
+        [matMenuTriggerFor]="menu.childMenu"
+        (click)="openDealer(child)"
+      >
+        <span>{{ child.name }}</span>
+      </button>
+      <app-select-location #menu [items]="child.children"></app-select-location>
+    </span>
+    <span *ngIf="!child.branches || child.branches.length === 0">
+      <button mat-menu-item (click)="openBranch(child)">
+        <span>{{ child.name }}</span>
+      </button>
+    </span>
+  </span>
+</mat-menu>
+<!--
+[routerLink]="'./dealer/' + child.dealers_id"
+
+[routerLink]="'./branch/' + child.branch_id" -->
